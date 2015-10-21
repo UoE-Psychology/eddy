@@ -1,0 +1,10 @@
+Package: eddy
+Type: Package
+Title: Edinburgh Wrapper for Swirl Tutorials
+Version: 0.1
+Date: 2015-10-16
+Author: Martin Corley and Josiah King
+Maintainer: Martin Corley <Martin.Corley@ed.ac.uk>
+Description: Provides convenience functions to install latest swirl tutorials from github, and reset progress
+License: GPL3
+LazyData: TRUE
