@@ -62,10 +62,6 @@ eddy <- function () {
     }
   }
   check_courses()
-  # one problem with the above function is that every time a student runs eddy(), they are
-  # essentially starting swirl with a completely new user. which means swirl shows them
-  # the basic swirl instructions (can skip through in matter of seconds though).
-  # see check_courses2 function for alternative - a bit more cumbersome.
 
   #possibly clear globalEnv? - is this because it might leave them with the above functions?
   rm(list=ls())
