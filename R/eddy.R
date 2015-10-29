@@ -18,7 +18,11 @@ eddy <- function () {
     !inherits(test, "try-error")
   }
 
-  if (!can_internet()) stop("Please ensure your computer is connected to the internet and try eddy() again")
+  if (!can_internet()) {
+    if (suppressMessages(suppressWarnings(!require(swirl)))) {
+      stop("You're not connected to the internet, and you don't seem to have the swirl package installed. Please ensure your computer is connected to the internet and try eddy() again.")
+    } else stop("You're not connected to the internet. To get the most up to date version of the UoE-Psych swirl course, please ensure your computer is connected to the internet and try eddy() again. Otherwise, if you would like to use your existing version of the course, then type swirl() to begin.")
+  }
 
   ## second - check if swirl is installed, install if not.
   pkg_install <- function(pkg) {
@@ -30,7 +34,7 @@ eddy <- function () {
     }
   }
   #pkg_install loads package too, so am suppressing the swirl output.
-  suppressMessages(pkg_install("swirl"))
+  suppressMessages(suppressWarnings(pkg_install("swirl")))
 
   ## third, check whether there is a UoEPsych installation and, if so, remove the progress
   ## and also remove course.
