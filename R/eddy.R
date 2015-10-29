@@ -21,7 +21,10 @@ eddy <- function () {
   if (!can_internet()) {
     if (suppressMessages(suppressWarnings(!require(swirl)))) {
       stop("You're not connected to the internet, and you don't seem to have the swirl package installed. Please ensure your computer is connected to the internet and try eddy() again.")
-    } else stop("You're not connected to the internet. To get the most up to date version of the UoE-Psych swirl course, please ensure your computer is connected to the internet and try eddy() again. Otherwise, if you would like to use your existing version of the course, then type swirl() to begin.")
+    } else
+      course_dir<-system.file("Courses", package="swirl")
+        if ("Y2_Psychology_RMS1" %in% list.files(course_dir)==TRUE | "UoE-Psych" %in% list.files(course_dir)==TRUE) stop("You're not connected to the internet. To get the most up to date version of the UoE-Psych swirl course, please ensure your computer is connected to the internet and try eddy() again. Otherwise, if you would like to use your existing version of the course, then type swirl() to begin.")
+        else stop("You're not connected to the internet, but you have the swirl package installed. However, you don't seem to have the UoE-Psych course installed. Please ensure your computer is connected to the internet and try eddy() again.")
   }
 
   ## second - check if swirl is installed, install if not.
